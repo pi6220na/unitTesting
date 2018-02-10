@@ -200,6 +200,8 @@ class TestPhoneManager(unittest.TestCase):
 
         ee1 = Employee(1, 'Mary')
         ee2 = Employee(2, 'Bill')
+        ee3 = Employee(3, 'Nobody')
+
 
         testAssignmentMgr.add_phone(testPhone1)
         testAssignmentMgr.add_phone(testPhone2)
@@ -208,14 +210,14 @@ class TestPhoneManager(unittest.TestCase):
 
         testAssignmentMgr.assign(1, ee1)
 
-        self.assertTrue(testAssignmentMgr.phone_info(1))
+        self.assertTrue(testAssignmentMgr.phone_info(ee1))
 
         # TODO check that the method returns None if the employee does not have a phone
-        self.assertEqual(None, testAssignmentMgr.phone_info(2))
+        self.assertEqual(None, testAssignmentMgr.phone_info(ee2))
 
         # TODO check that the method raises an PhoneError if the employee does not exist
         with self.assertRaises(EmployeeError):
-            testAssignmentMgr.phone_info(3)
+            testAssignmentMgr.phone_info(ee3)
 
 
 

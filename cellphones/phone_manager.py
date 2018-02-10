@@ -109,7 +109,7 @@ class PhoneAssignments():
         employeeFound = False
 
         for ee in self.employees:
-            if ee.id == employee:
+            if ee.id == employee.id:
                 employeeFound = True
                 break
             else:
@@ -119,7 +119,7 @@ class PhoneAssignments():
             raise EmployeeError('Employee %s not found' % employee)
 
         for phone in self.phones:
-            if phone.employee_id == employee:
+            if phone.employee_id == employee.id:
                 return phone
 
         return None
