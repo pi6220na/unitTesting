@@ -5,7 +5,7 @@
 def camel_case(sentence_in):
 
     words = sentence_in.split()
-
+    my_output_string = ''
     output_words = []
 
     for word in words:
