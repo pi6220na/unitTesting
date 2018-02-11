@@ -23,12 +23,12 @@ def main():
     assignments.assign(phone1.id, employee2)  # Assign phone 1 to employee 2
     assignments.assign(phone2.id, employee3)  # Assign phone 2 to employee 3
 
-    print(assignments.phone_info(1))  # Employee 1, no phone. Prints None
-    print(assignments.phone_info(2))  # Employee 2, has Phone 1
-    print(assignments.phone_info(3))  # Employee 3 has Phone 2
+    print(assignments.phone_info(employee1))  # Employee 1, no phone. Prints None
+    print(assignments.phone_info(employee2))  # Employee 2, has Phone 1
+    print(assignments.phone_info(employee3))  # Employee 3 has Phone 2
 
     assignments.un_assign(phone2.id)          # un-assign phone 2 (which belonged to employee 3)
-    print(assignments.phone_info(3))  # None
+    print(assignments.phone_info(employee3))  # None
 
     assignments.assign(phone3.id, employee3)   # Assign phone 3 to employee 3
     assignments.assign(phone2.id, employee3)   # Reassign phone 3 to employee3. TODO this should fail; employee3 should not be able to have two phones

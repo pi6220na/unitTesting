@@ -200,8 +200,8 @@ class TestPhoneManager(unittest.TestCase):
 
         ee1 = Employee(1, 'Mary')
         ee2 = Employee(2, 'Bill')
-        ee3 = Employee(3, 'Nobody')
-
+        #ee3 = Employee(3, 'Nobody')
+        ee3 = Employee(None, None)
 
         testAssignmentMgr.add_phone(testPhone1)
         testAssignmentMgr.add_phone(testPhone2)
