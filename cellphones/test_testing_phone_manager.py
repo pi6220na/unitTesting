@@ -179,9 +179,6 @@ class TestPhoneManager(unittest.TestCase):
         testAssignmentMgr.add_phone(testPhone1)
         testAssignmentMgr.add_phone(testPhone2)
 
-        testAssignmentMgr.add_employee(ee1)
-        testAssignmentMgr.add_employee(ee2)
-
         testAssignmentMgr.assign(1, ee1)
         testAssignmentMgr.assign(2, ee2)
 
@@ -190,28 +187,6 @@ class TestPhoneManager(unittest.TestCase):
         for ph in testAssignmentMgr.phones:
             if ph.id == 1:
                 self.assertFalse(ph.is_assigned())
-
-
-
-        for ee in testAssignmentMgr.employees:
-            print(ee)
-        for phone in testAssignmentMgr.phones:
-            print(phone)
-
-
-        # based on coverage report lines 89 and 93 in phone_manager.py missed in unit testing
-        # raise phoneerror if employee already has a phone
-        with self.assertRaises(PhoneError):
-            testAssignmentMgr.assign(2, ee2)
-
-        # don't raise error
-        with self.assertRaises(PhoneError):
-            testAssignmentMgr.assign(2, ee1)
-
-#        testAssignmentMgr.assign(2, ee2)
-
-
-
 
 
     def test_get_phone_info_for_employee(self):
@@ -233,15 +208,22 @@ class TestPhoneManager(unittest.TestCase):
         testAssignmentMgr.add_employee(ee1)
         testAssignmentMgr.add_employee(ee2)
 
-        # based on coverage report, need to test adding a duplicate employee
-        #testAssignmentMgr.add_employee(ee2)
-        with self.assertRaises(EmployeeError):
-            testAssignmentMgr.add_employee(ee2)
-
-
         testAssignmentMgr.assign(1, ee1)
 
+
+        # error   FAILED (errors=1)
+        #num = 0
+        #print(5 / num)
+
+        # FAILED   FAILED (failures=1)
+        #with self.assertRaises(EmployeeError):
+        #    testAssignmentMgr.phone_info(ee2)
+
+
+
+
         self.assertTrue(testAssignmentMgr.phone_info(ee1))
+        self.assertFalse(testAssignmentMgr.phone_info(ee1))
 
         # TODO check that the method returns None if the employee does not have a phone
         self.assertEqual(None, testAssignmentMgr.phone_info(ee2))
